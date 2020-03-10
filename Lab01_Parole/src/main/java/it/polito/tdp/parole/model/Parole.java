@@ -17,7 +17,7 @@ public class Parole {
 	public List<String> getElenco() {
 		List<String> listaOrdinata = new LinkedList<String>(listaP);
 		Collections.sort(listaOrdinata, new Comparatore());		
-		return listaP;
+		return listaOrdinata;
 	}
 	
 	public void reset() {
