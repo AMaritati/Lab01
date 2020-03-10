@@ -25,7 +25,10 @@ public class Parole {
 	}
 	
 	public void cancel(String s) {
+		for (String p : listaP) {
+			if(p.equals(s))
 		listaP.remove(s);
 	}
-
+		
+	}
 }
