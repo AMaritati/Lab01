@@ -16,6 +16,7 @@ public class FXMLController {
 	Parole elenco ;
 	boolean result = true;
     char c;
+    String elenco1;
 
     @FXML
     private ResourceBundle resources;
@@ -33,7 +34,13 @@ public class FXMLController {
     private TextArea txtResult;
 
     @FXML
+    private TextField txtTime;
+    
+    @FXML
     private Button btnReset;
+    
+    @FXML
+    private Button btnCancel;
 
     @FXML
     void doInsert(ActionEvent event) {
@@ -52,12 +59,16 @@ public class FXMLController {
         	
         }
          
-    	
     	elenco.addParola(ts);
     	//List<String> elencoO = elenco.getElenco();
     	txtParola.clear();
     	//txtResult.setText(elencoO.toString());
-    	txtResult.setText(elenco.getElenco().toString());
+    	String elenco1 ="";
+    	for (String s : elenco.getElenco())    //e' possibile farlo con tostring()
+    	{                                      // ma posso anche creare una stringa
+    		elenco1+=s+ "\n";
+    	}
+    	txtResult.setText(elenco1);
     	
     }
 
@@ -66,14 +77,27 @@ public class FXMLController {
     	txtResult.clear();
     	elenco.reset();
     }
+    
+    @FXML
+    void doCancel(ActionEvent event) {
+    	
+    	for (String s : elenco.getElenco()) {
+    		if (txtResult.getSelectedText().equals(s)) {
+    			elenco.cancel(s);
+    		}
+    	}
+    	
+
+    }
 
     @FXML
     void initialize() {
         assert txtParola != null : "fx:id=\"txtParola\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnInserisci != null : "fx:id=\"btnInserisci\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert txtTime != null : "fx:id=\"txtTime\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
-
+        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'Scene.fxml'.";
         elenco = new Parole() ;
     }
 }
