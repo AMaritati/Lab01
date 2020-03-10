@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 public class FXMLController {
 	
 	Parole elenco ;
+	boolean result = true;
+    char c;
 
     @FXML
     private ResourceBundle resources;
@@ -37,6 +39,20 @@ public class FXMLController {
     void doInsert(ActionEvent event) {
     	
     	String ts = txtParola.getText();
+    	for(int i=0;i<ts.length();i++){
+            c = ts.charAt(i);
+            if(!((Character.isLetter(c)))){
+                result = false;
+            }
+        }
+        
+        if (result == false) {
+        	txtResult.setText("NON HAI INSERITO UNA PAROLA");
+        	return;
+        	
+        }
+         
+    	
     	elenco.addParola(ts);
     	//List<String> elencoO = elenco.getElenco();
     	txtParola.clear();
