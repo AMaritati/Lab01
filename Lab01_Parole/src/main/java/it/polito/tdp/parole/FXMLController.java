@@ -55,6 +55,8 @@ public class FXMLController {
         
         if (result == false) {
         	txtResult.setText("NON HAI INSERITO UNA PAROLA");
+        	txtParola.clear();
+        	result = true;
         	return;	
         }
     	elenco.addParola(ts);
@@ -75,12 +77,13 @@ public class FXMLController {
     void doReset(ActionEvent event) {
     	txtResult.clear();
     	elenco.reset();
-    	txtTime.setText(Long.toString(System.nanoTime()));
+    	//txtTime.setText(Long.toString(System.nanoTime()));
 
     }
     
     @FXML
     void doCancel(ActionEvent event) {
+    	//elenco.cancel(txtResult.getSelectedText());
     	elenco.cancel(txtResult.getSelectedText());
     	String risultato = "";
     	
@@ -89,7 +92,7 @@ public class FXMLController {
     	}
     		
     	txtResult.setText(risultato);
-    	txtTime.setText(Long.toString(System.nanoTime()));
+    	//txtTime.setText(Long.toString(System.nanoTime()));
     	
     }
 

@@ -24,10 +24,10 @@ public class Parole {
 		listaP.clear();
 	}
 	
-	public void cancel(String s) {
+	public void cancel (String s) {
 		for (String p : listaP) {
 			if(p.equals(s))
-		listaP.remove(s);
+		       listaP.remove(s);
 	}
 		
 	}
