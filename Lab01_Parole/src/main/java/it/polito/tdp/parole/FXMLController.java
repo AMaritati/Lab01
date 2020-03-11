@@ -17,6 +17,7 @@ public class FXMLController {
 	boolean result = true;
     char c;
     String elenco1;
+    long start = System.nanoTime();
 
     @FXML
     private ResourceBundle resources;
@@ -63,13 +64,14 @@ public class FXMLController {
     	//List<String> elencoO = elenco.getElenco();
     	txtParola.clear();
     	//txtResult.setText(elencoO.toString());
+    	long fine = System.nanoTime();
     	String elenco1 ="";
     	for (String s : elenco.getElenco())    //e' possibile farlo con tostring()
     	{                                      // ma posso anche creare una stringa
     		elenco1+=s+ "\n";
     	}
     	txtResult.setText(elenco1);
-    	txtTime.setText(Long.toString(System.nanoTime()));
+    	txtTime.setText("TEMPO IMPIEGATO "+ (fine-start) + " ns");
 
     }
 
