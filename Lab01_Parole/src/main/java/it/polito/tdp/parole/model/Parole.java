@@ -14,6 +14,21 @@ public class Parole {
 		listaP.add(p);
 	}
 	
+	public boolean controllaParola (String p) {
+		char c;
+		boolean result = true;
+		
+		for(int i=0;i<p.length();i++){
+            c = p.charAt(i);
+            if(!((Character.isLetter(c)))){
+                result = false;
+                return result;
+            }
+        }
+        
+		return result;
+	}
+	
 	public List<String> getElenco() {
 		List<String> listaOrdinata = new LinkedList<String>(listaP);
 		Collections.sort(listaOrdinata, new Comparatore());		
